@@ -8,5 +8,6 @@
 #define SET_BYTE(REG,VALUE)      REG  =   VALUE
 #define SET_BYTE(REG)            REG  =   (0xFF)
 #define CLR_BYTE(REG)            REG  =   (0x00)
+#define CONC_BIT(b7,b6,b5,b4,b3,b2,b1,b0) 0b##b7##b6##b5##b4##b3##b2##b1##b0
 
 #endif
