@@ -4,10 +4,11 @@
 /********* File: Program File  *****************/
 /********* File: Program File  *****************/
 /************************************************/
-#include "STD_Types.h"
 #include "Bit_Math.h"
+#include "STD_Types.h"
 
 #include "DIO_int.h"
+
 #include "DIO_private.h"
 #include "DIO_config.h"
 
@@ -17,32 +18,31 @@ void DIO_voidInitialization(void)
 	DDRA = DIO_PORTA_DIRECTIONS ;
 	DDRB = DIO_PORTB_DIRECTIONS ;
 	DDRC = DIO_PORTC_DIRECTIONS ;
-	DRRD = DIO_PORTD_DIRECTIONS ;
+	DDRD = DIO_PORTD_DIRECTIONS ;
 }
 /** mode set*/
 void DIO_voidSetPinDirection (u8 PortID, u8 PinID, u8 Direction)
 {
 	if(PinID <10 && PortID < 4)
 	{
-		if (Direction == OUTPUT)
+	if (Direction == OUTPUT)
     {
         switch (PortID)
         {
-             case PORTA: SET_BIT(DDRA ,PinID); break;
-             case PORTB: SET_BIT(DDRB ,PinID); break;
-             case PORTC: SET_BIT(DDRC ,PinID); break;
-             case PORTD: SET_BIT(DDRD ,PinID); break;
+             case PORTAID: SET_BIT(DDRA ,PinID); break;
+             case PORTBID: SET_BIT(DDRB ,PinID); break;
+             case PORTCID: SET_BIT(DDRC ,PinID); break;
+             case PORTDID: SET_BIT(DDRD ,PinID); break;
              
         }
-    }
-    else if 
+    } else if (Direction == INPUT)
     {
         switch (PortID)
         {
-             case PORTA: CLR_BIT(DDRA ,PinID); break;
-             case PORTB: CLR_BIT(DDRB ,PinID); break;
-             case PORTC: CLR_BIT(DDRC ,PinID); break;
-             case PORTD: CLR_BIT(DDRD ,PinID); break;
+             case PORTAID: CLR_BIT(DDRA ,PinID); break;
+             case PORTBID: CLR_BIT(DDRB ,PinID); break;
+             case PORTCID: CLR_BIT(DDRC ,PinID); break;
+             case PORTDID: CLR_BIT(DDRD ,PinID); break;
         }
     }else
     {
@@ -65,19 +65,19 @@ void DIO_voidSetPinValue     (u8 PortID , u8 PinID , u8 Value)
 	{
 		switch(PortID)
 		{
-			 case PORTA: SET_BIT(PORTA ,PinID); break;
-             case PORTB: SET_BIT(PORTB ,PinID); break;
-             case PORTC: SET_BIT(PORTC ,PinID); break;
-             case PORTD: SET_BIT(PORTD ,PinID); break;
+			 case PORTAID: SET_BIT(PORTA ,PinID); break;
+             case PORTBID: SET_BIT(PORTB ,PinID); break;
+             case PORTCID: SET_BIT(PORTC ,PinID); break;
+             case PORTDID: SET_BIT(PORTD ,PinID); break;
 		}	
-	}if else
+	}else if (Value == LOW)
 	{
         switch (PortID)
         {
-             case PORTA: CLR_BIT(PORTA ,PinID); break;
-             case PORTB: CLR_BIT(PORTB ,PinID); break;
-             case PORTC: CLR_BIT(PORTC ,PinID); break;
-             case PORTD: CLR_BIT(PORTD ,PinID); break;
+             case PORTAID: CLR_BIT(PORTA ,PinID); break;
+             case PORTBID: CLR_BIT(PORTB ,PinID); break;
+             case PORTCID: CLR_BIT(PORTC ,PinID); break;
+             case PORTDID: CLR_BIT(PORTD ,PinID); break;
         }
 	}else
 	{
@@ -96,10 +96,10 @@ void DIO_voidTogglePin(u8 PortID, u8 PinID)
 	{
 		switch(PortID)
 		{
-			 case PORTA: TOG_BIT(PORTA ,PinID); break;
-             case PORTB: TOG_BIT(PORTB ,PinID); break;
-             case PORTC: TOG_BIT(PORTC ,PinID); break;
-             case PORTD: TOG_BIT(PORTD ,PinID); break;
+			 case PORTAID: TOG_BIT(PORTA ,PinID); break;
+             case PORTBID: TOG_BIT(PORTB ,PinID); break;
+             case PORTCID: TOG_BIT(PORTC ,PinID); break;
+             case PORTDID: TOG_BIT(PORTD ,PinID); break;
 		}	
 	}else
 	{
@@ -115,10 +115,10 @@ void DIO_voidSetPortDirection(u8 PortID, u8 Direction)
     
         switch (PortID)
         {
-             case PORTA: SET_BYTE(DDRA ,Direction); break;
-             case PORTB: SET_BYTE(DDRB ,Direction); break;
-             case PORTC: SET_BYTE(DDRC ,Direction); break;
-             case PORTD: SET_BYTE(DDRD ,Direction); break;
+             case PORTAID: SET_BYTE(DDRA ,Direction); break;
+             case PORTBID: SET_BYTE(DDRB ,Direction); break;
+             case PORTCID: SET_BYTE(DDRC ,Direction); break;
+             case PORTDID: SET_BYTE(DDRD ,Direction); break;
              
         }
 	}else
@@ -134,10 +134,10 @@ u8 DIO_u8GetPinValue(u8 PortID, u8 PinID)
 	{
         switch (PortID)
         {
-             case PORTA: return Get_Bit(PINA ,PinID); 
-             case PORTB: return Get_Bit(PINB ,PinID);
-             case PORTC: return Get_Bit(PINC ,PinID);
-             case PORTD: return Get_Bit(PIND ,PinID);
+             case PORTAID: return Get_Bit(PINA ,PinID);
+             case PORTBID: return Get_Bit(PINB ,PinID);
+             case PORTCID: return Get_Bit(PINC ,PinID);
+             case PORTDID: return Get_Bit(PIND ,PinID);
              
         }
 	}else
@@ -145,6 +145,7 @@ u8 DIO_u8GetPinValue(u8 PortID, u8 PinID)
 		//NO CODE
 	}
 	
+
 }
 /** High - Low*/
 void DIO_voidSetPortValue(u8 PortID, u8 Value)
@@ -153,10 +154,10 @@ void DIO_voidSetPortValue(u8 PortID, u8 Value)
 	{
 		switch(PortID)
 		{
-			 case PORTA: SET_BYTE(PORTA ,Value); break;
-             case PORTB: SET_BYTE(PORTB ,Value); break;
-             case PORTC: SET_BYTE(PORTC ,Value); break;
-             case PORTD: SET_BYTE(PORTD ,Value); break;
+			 case PORTAID: SET_BYTE(PORTA ,Value); break;
+             case PORTBID: SET_BYTE(PORTB ,Value); break;
+             case PORTCID: SET_BYTE(PORTC ,Value); break;
+             case PORTDID: SET_BYTE(PORTD ,Value); break;
 		}	
 	}else
 	{

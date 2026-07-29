@@ -3,14 +3,14 @@
 /********* Date  : 29/07/2026   *****************/
 /********* File  : Interface File  **************/
 /************************************************/
-#ifdef  DIO_INT_H
-#define DIO_INT_H
-
+#ifndef  DIO_INT_H
+#define  DIO_INT_H
+//#include "STD_Types.h"
  /** PORTs ID */
-#define PORTA 0
-#define PORTA 1
-#define PORTA 2
-#define PORTA 3
+#define PORTAID 0
+#define PORTBID 1
+#define PORTCID 2
+#define PORTDID 3
 
  /** PINSs ID */
 #define PIN0  0
@@ -37,13 +37,13 @@ void DIO_voidInitialization    (void);
 void DIO_VoidSetPinDirection   (u8 portID , u8 pinID , u8 Direction);
 /**output mode*/
 void DIO_voidSetPinValue       (u8 portID , u8 pinID , u8 value);
-void DIO_voidTogglePin         (u8 PortID, u8 PinID);
+void DIO_voidTogglePin         (u8 PortID , u8 PinID);
 /**input mode*/
-u8   DIO_u8GetPinValue         (u8 PortID, PinID);
+u8   DIO_u8GetPinValue         (u8 PortID , u8 PinID);
 
 /*********************Port set*************************/
-void DIO_voidSetPortDirection  (u8 PortID, u8 Direction;
+void DIO_voidSetPortDirection  (u8 PortID, u8 Direction);
 void DIO_voidSetPortValue      (u8 PortID, u8 Value);
 
 
-#enfif
+#endif
