@@ -6,7 +6,6 @@
 #ifdef  DIO_INT_H
 #define DIO_INT_H
 
-#include "STD_Types"
  /** PORTs ID */
 #define PORTA 0
 #define PORTA 1
