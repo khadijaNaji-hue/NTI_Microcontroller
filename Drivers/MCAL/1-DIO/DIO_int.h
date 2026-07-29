@@ -1,13 +1,19 @@
+/************************************************/
+/********* Author: Khadija Naji *****************/
+/********* Date  : 29/07/2026   *****************/
+/********* File  : Interface File  **************/
+/************************************************/
 #ifdef  DIO_INT_H
 #define DIO_INT_H
 
 #include "STD_Types"
-
+ /** PORTs ID */
 #define PORTA 0
 #define PORTA 1
 #define PORTA 2
 #define PORTA 3
 
+ /** PINSs ID */
 #define PIN0  0
 #define PIN1  1
 #define PIN2  2
@@ -17,15 +23,16 @@
 #define PIN6  6
 #define PIN7  7
 
-
 #define OUTPUT 1
 #define INPUT  0
 
 #define HIGH 1
 #define LOW  0
+#define ON   1
+#define OOF  0
 
-
-void DIO_voidInitialization    (void);/**set all pins to initial value determined at configration*/ 
+/**set all pins to initial value determined at configration*/
+void DIO_voidInitialization    (void); 
 
 /*********************Pin set*************************/
 void DIO_VoidSetPinDirection   (u8 portID , u8 pinID , u8 Direction);
