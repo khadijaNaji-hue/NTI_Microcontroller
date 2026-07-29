@@ -1,16 +1,11 @@
-#ifndef STD_LIB_H_
-#define STD_LIB_H_
-
-typedef unsigned char      u8;
-typedef unsigned short int u16;
-typedef unsigned int       u32;
-
-typedef signed char        s8;
-typedef signed short int   s16;
-typedef signed int         s32;
-
-typedef float              f32;
-typedef double             f64;
-typedef long double        f128;
+#ifndef BIT_MATH_H_
+#define BIT_MATH_H_
+  
+#define SET_BIT(REG,BIT_NUM)     REG |=(1<<BIT_NUM)
+#define CLR_BIT(REG,BIT_NUM)     REG &= ~ (1<<BIT_NUM)
+#define TOG_BIT(REG,BIT_NUM)     REG ^=   (1<<BIT_NUM)
+#define Get_Bit(REG,BIT_NUM)    (REG>>BIT_NUM)&(0X01)
+#define SET_BYTE(REG)            REG  =   (0xFF)
+#define CLR_BYTE(REG)            REG  =   (0x00)
 
 #endif
