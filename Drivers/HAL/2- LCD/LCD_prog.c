@@ -1,13 +1,15 @@
 /************************************************/
-/********* Author: Khadija Naji *****************/
-/********* Date  : 29/07/2026   *****************/
-/********* File: Program File  *****************/
+/************** Author: Khadija Naji ************/
+/************** Date  : 29/07/2026   ************/
+/************** File  : Program File  ***********/
+/********* Last Update: 30/07/2026   ************/
 /************************************************/
 #include "STD_Types.h"
 #include "Bit_Math.h"
 #include <avr/delay.h>
 
 #include "DIO_int.h"
+
 #include "LCD_int.h"
 #include "LCD_private.h"
 #include "LCD_config.h"
@@ -58,6 +60,44 @@ void LCD_voidSendData( u8 u8CMD)
 	LCD_voidPutonBus(u8CMD);
 	
 }
+void LCD_GotoXY(u8 X, u8 Y)
+{
+	/** 0000 0000
+	    1yxx xxxx
+		total DDRRAM address in dec = (128) +(64*y) + x ;
+		LDC_GO_DDRRAM_ADDRESS(X,Y)
+		TO make it faster code define all addresses command value at array 
+	    u8 DDRRAM_arr[16][2] = {{0x80,0x81,...,0x8F},{0xC0,...,0xCF}}
+		DDRRAM_arr[X][Y]
+	*/
+     /** LINE HAVE 40 CHAR LOCATIN BUT 
+	 ONLY 16 IS DISPLAYABLE , SO WE CAN
+	 WRITE AT HIDDEN LOCATIONSO ,
+	 USED AT APP LIKE WRITE A LARGE Sentence
+	 OR MAKE THE DISPLY MOVABLE
+	 */
+	
+	if( X < 40 && Y < 2 ) 
+		LCD_voidSendCommand( LDC_GO_DDRRAM_ADDRESS(X,Y));
+	else
+		LCD_voidSendCommand( LDC_HOME);
+}
+
+
+void LCD_voidWriteNumber(u8 u8Number)
+{
+	
+}
+void LCD_voidWriteString(u8 * u8string)
+{
+	
+}
+
+void LCD_voidWriteMoveString(u8 * u8string)
+{
+	
+}
+
 static void LCD_voidPutonBus(u8 u8char)
 {
 	DIO_voidSetPinValue(LCD_D0 ,GET_BIT(u8CMD),0);

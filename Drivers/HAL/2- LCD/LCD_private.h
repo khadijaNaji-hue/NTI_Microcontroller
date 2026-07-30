@@ -1,9 +1,9 @@
 /************************************************/
-/********* Author: Khadija Naji *****************/
-/********* Date  : 29/07/2026   *****************/
-/********* File  : Private File  **************/
+/************** Author: Khadija Naji ************/
+/************** Date  : 29/07/2026   ************/
+/************** File  : Private File  ***********/
+/********* Last Update: 30/07/2026   ************/
 /************************************************/
-
 #ifndef  LCD_PRIVATE_H
 #define  LCD_PRIVATE_H
 
@@ -15,6 +15,15 @@
 #define LCD_FUNCTION_RESET   0X30 //RESET LED 
 #define LCD_FUNCTION_8BIT    0X38 //SMALL THE SIZE OF DISPLAYED CHAR , 2 LINE DISPLAY ; CHAR-->5*7 INSTED OF 5*10
 #define LCD_SETCURSER        0X80 //SET CURSER POSITION
+
+
+#define LCD_SHIFTCURSOR_LEFT   0x10
+#define LCD_SHIFTCURSOR_RIGHT  0x14
+
+#define LCD_SHIFTDISPLAY_LEFT  0x18
+#define LCD_SHIFTDISPLAY_RIGHT 0x1C
+
+
 
 static void LCD_voidPutonBus(u8 u8char);
 
