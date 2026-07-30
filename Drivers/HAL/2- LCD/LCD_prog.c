@@ -4,16 +4,17 @@
 /************** File  : Program File  ***********/
 /********* Last Update: 30/07/2026   ************/
 /************************************************/
-#include "STD_Types.h"
+
 #include "Bit_Math.h"
-#include <avr/delay.h>
+#include "STD_Types.h"
 
 #include "DIO_int.h"
 
 #include "LCD_int.h"
-#include "LCD_private.h"
 #include "LCD_config.h"
+#include "LCD_private.h"
 
+#include <avr/delay.h>
 
 void LCD_voidLCDintializatin(void)
 {
@@ -78,17 +79,46 @@ void LCD_GotoXY(u8 X, u8 Y)
 	 */
 	
 	if( X < 40 && Y < 2 ) 
-		LCD_voidSendCommand( LDC_GO_DDRRAM_ADDRESS(X,Y));
+		LCD_voidSendCommand( LCD_GO_DDRRAM_ADDRESS(X,Y));
 	else
-		LCD_voidSendCommand( LDC_HOME);
+		LCD_voidSendCommand( LCD_HOME);
 }
 
 
-void LCD_voidWriteNumber(u8 u8Number)
+/** Comment EDIT THIS 
+to can hanlde the full word should be in the same line 
+ 
+ or make it moved if u wanna display in the same line 
+*/
+void LCD_voidWriteString(u8 * u8string , u8 line) 
 {
+	LCD_voidSendCommand(LCD_HOME);
+	if (line <2)
+	{
+		u8 counter=0 ;
+	if (line ==1)
+	{
+		LCD_GotoXY(0, 1);
+	}
+	while ( u8string[counter] != '\0')
+	{
+		LCD_voidSendData( u8string[counter]);
+		         //LCD_voidSendCommand(LCD_SHIFTCURSOR_RIGHT);
+		/**LCD automatic shift the curser*/
+		counter++;
+		if (counter ==16)
+		{
+			LCD_voidSendCommand(LCD_GO_DDRRAM_ADDRESS(0,1)) ; 
+		}			
+	}	
+	}else
+	{
+		//NO Code 
+	}
 	
 }
-void LCD_voidWriteString(u8 * u8string)
+
+void LCD_voidWriteNumber(u8 u8Number)
 {
 	
 }
@@ -100,14 +130,14 @@ void LCD_voidWriteMoveString(u8 * u8string)
 
 static void LCD_voidPutonBus(u8 u8char)
 {
-	DIO_voidSetPinValue(LCD_D0 ,GET_BIT(u8CMD),0);
-	DIO_voidSetPinValue(LCD_D1 ,GET_BIT(u8CMD),1);
-	DIO_voidSetPinValue(LCD_D2 ,GET_BIT(u8CMD),2);
-	DIO_voidSetPinValue(LCD_D3 ,GET_BIT(u8CMD),3);
-	DIO_voidSetPinValue(LCD_D4 ,GET_BIT(u8CMD),4);
-	DIO_voidSetPinValue(LCD_D5 ,GET_BIT(u8CMD),5);
-	DIO_voidSetPinValue(LCD_D6 ,GET_BIT(u8CMD),6);
-	DIO_voidSetPinValue(LCD_D7 ,GET_BIT(u8CMD),7);
+	DIO_voidSetPinValue(LCD_D0 ,Get_Bit(u8char,0));
+	DIO_voidSetPinValue(LCD_D1 ,Get_Bit(u8char,1));
+	DIO_voidSetPinValue(LCD_D2 ,Get_Bit(u8char,2));
+	DIO_voidSetPinValue(LCD_D3 ,Get_Bit(u8char,3));
+	DIO_voidSetPinValue(LCD_D4 ,Get_Bit(u8char,4));
+	DIO_voidSetPinValue(LCD_D5 ,Get_Bit(u8char,5));
+	DIO_voidSetPinValue(LCD_D6 ,Get_Bit(u8char,6));
+	DIO_voidSetPinValue(LCD_D7 ,Get_Bit(u8char,7));
 	
 	DIO_voidSetPinValue(LCD_EN, HIGH);
 	_delay_ms(2);
