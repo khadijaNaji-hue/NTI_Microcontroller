@@ -2,7 +2,7 @@
 /************** Author: Khadija Naji ************/
 /************** Date  : 30/07/2026   ************/
 /************** File  : interface File  *********/
-/********* Last Update: 30/07/2026   ************/
+/********* Last Update: 31/07/2026   ************/
 /************************************************/
 
 #define KEYPAD_CONFIG_H
@@ -17,7 +17,7 @@
  */
 
 
-void KEYPAD_voidInitialization(void);/**GO TO SET THIS PINS AT DIO_CONFIG TO IN /OUT*/
+void KEYPAD_voidInitializaton(void);/**GO TO SET THIS PINS AT DIO_CONFIG TO IN /OUT*/
 
 u8   KEYPAD_u8GetPressedKey(void);
 #endif

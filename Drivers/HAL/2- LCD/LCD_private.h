@@ -26,5 +26,6 @@
 
 
 static void LCD_voidPutonBus(u8 u8char);
+static u8* LCD_dec_to_arrOfChar(u16 u16Number);
 
 #endif

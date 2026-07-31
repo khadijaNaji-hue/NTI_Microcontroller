@@ -16,7 +16,7 @@
 
 #include <avr/delay.h>
 
-void LCD_voidLCDintializatin(void)
+void LCD_voidIntialization(void)
 {
 	/** 
 	FROM DATASHEET
@@ -118,11 +118,15 @@ void LCD_voidWriteString(u8 * u8string , u8 line)
 	
 }
 
-void LCD_voidWriteNumber(u8 u8Number)
+void LCD_voidWriteNumber(u16 u16Number , u8 line)
 {
-	
+	LCD_voidWriteString(LCD_dec_to_arrOfChar(u16Number) , line);
 }
-
+static u8* LCD_dec_to_arrOfChar(u16 u16Number)
+{
+	u8 * res ;
+	return res ;
+}
 void LCD_voidWriteMoveString(u8 * u8string)
 {
 	

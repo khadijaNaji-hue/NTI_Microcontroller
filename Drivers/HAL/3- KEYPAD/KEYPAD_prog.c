@@ -2,7 +2,7 @@
 /************** Author: Khadija Naji ************/
 /************** Date  : 30/07/2026   ************/
 /************** File  : Program File  ***********/
-/********* Last Update: 30/07/2026   ************/
+/********* Last Update: 31/07/2026   ************/
 /************************************************/
 
 #include "Bit_Math.h"
@@ -16,7 +16,7 @@
 
 
 
-void KEYPAD_voidInitialization(void)
+void KEYPAD_voidInitializaton(void)
 {
 	/**set all pins port to 1 (output(colums) and inputs(rows)*/
 
@@ -38,7 +38,7 @@ u8   KEYPAD_u8GetPressedKey(void)
 	u8 RowsValue ;
 	u8 pressedKey = 0xFF ;
 	/******colume3 ******/
-	KEYPAD_voidSetColsPortValue(0111);
+	KEYPAD_voidSetColsPortValue(0b00000111);
 	RowsValue = KEYPAD_u8GetRowsValue( );
 
 	switch(RowsValue)
@@ -51,7 +51,7 @@ u8   KEYPAD_u8GetPressedKey(void)
 	}
 
     /******colume2 ******/
-    KEYPAD_voidSetColsPortValue(0111);
+    KEYPAD_voidSetColsPortValue(0b00001011);
     RowsValue = KEYPAD_u8GetRowsValue( );
 
     switch(RowsValue)
@@ -63,7 +63,7 @@ u8   KEYPAD_u8GetPressedKey(void)
     default : pressedKey = 0xFF; break;
     }
     /******colume1 ******/
-	KEYPAD_voidSetColsPortValue(0111);
+	KEYPAD_voidSetColsPortValue(0b00001101);
 	RowsValue = KEYPAD_u8GetRowsValue( );
 
 	switch(RowsValue)
@@ -75,7 +75,7 @@ u8   KEYPAD_u8GetPressedKey(void)
 	default : pressedKey = 0xFF; break;
 	}
 	/******colume0 ******/
-	KEYPAD_voidSetColsPortValue(0111);
+	KEYPAD_voidSetColsPortValue(0b00001110);
 	RowsValue = KEYPAD_u8GetRowsValue( );
 
 	switch(RowsValue)
@@ -98,7 +98,7 @@ static void KEYPAD_voidSetColsPortValue(u8 u8colsValues)
 }
 static u8 KEYPAD_u8GetRowsValue(void)
  {
-	 u8 Rowsvalue=0x0F;
+	 u8 Rowsvalue;
 	 Rowsvalue  = DIO_u8GetPinValue(KEYPAD_ROW0);
 	 Rowsvalue |= (DIO_u8GetPinValue(KEYPAD_ROW1)<<1);
 	 Rowsvalue |= (DIO_u8GetPinValue(KEYPAD_ROW2)<<2);

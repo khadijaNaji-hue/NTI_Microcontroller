@@ -2,39 +2,39 @@
 /************** Author: Khadija Naji ************/
 /************** Date  : 30/07/2026   ************/
 /************** File  : Configuration File  *****/
-/********* Last Update: 30/07/2026   ************/
+/********* Last Update: 31/07/2026   ************/
 /************************************************/
 
 #define KEYPAD_CONFIG_H
 #ifdef  KEYPAD_CONFIG_H
 /*
- *  { 1   2   3   + }       { 33    23    13    03 } row3
- *  { 4   5   6   - }       { 32    22    12    02 } row2
- *  { 7   8   9   * }       { 31    21    11    01 } row1
- *  { !   0   %   / }       { 30    20    10    00 } row0
+ *  { 7   8   9   / }       { 33    23    13    03 } row3
+ *  { 4   5   6   * }       { 32    22    12    02 } row2
+ *  { 1   2   3   - }       { 31    21    11    01 } row1
+ *  { !   0   %   + }       { 30    20    10    00 } row0
  *                           col3   col2  col1  col0
  */
 
 
-#define KEYPAD_ELEMENT33_   '1'
+#define KEYPAD_ELEMENT33_   '7'
 #define KEYPAD_ELEMENT32_   '4'
-#define KEYPAD_ELEMENT31_   '7'
+#define KEYPAD_ELEMENT31_   '1'
 #define KEYPAD_ELEMENT30_   '!'
 
-#define KEYPAD_ELEMENT22_   '5'
+#define KEYPAD_ELEMENT22_   '8'
 #define KEYPAD_ELEMENT23_   '2'
-#define KEYPAD_ELEMENT21_   '8'
+#define KEYPAD_ELEMENT21_   '2'
 #define KEYPAD_ELEMENT20_   '0'
 
 #define KEYPAD_ELEMENT13_   '3'
 #define KEYPAD_ELEMENT12_   '6'
-#define KEYPAD_ELEMENT11_   '9'
-#define KEYPAD_ELEMENT10_   '%'
+#define KEYPAD_ELEMENT11_   '3'
+#define KEYPAD_ELEMENT10_   '='
 
-#define KEYPAD_ELEMENT03_   '+'
-#define KEYPAD_ELEMENT02_   '-'
-#define KEYPAD_ELEMENT01_   '*'
-#define KEYPAD_ELEMENT00_   '/'
+#define KEYPAD_ELEMENT03_   '/'
+#define KEYPAD_ELEMENT02_   '*'
+#define KEYPAD_ELEMENT01_   '-'
+#define KEYPAD_ELEMENT00_   '+'
 
 
 #define GET_ELEMENT(COL , ROW) KEYPAD_ELEMENT##COL##ROW
