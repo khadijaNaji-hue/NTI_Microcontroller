@@ -47,7 +47,7 @@ u8   KEYPAD_u8GetPressedKey(void)
 	case 0b00001011 : pressedKey = KEYPAD_ELEMENT32_ ; break;
 	case 0b00001101 : pressedKey = KEYPAD_ELEMENT31_ ; break;
 	case 0b00001110 : pressedKey = KEYPAD_ELEMENT30_ ; break;
-	default : pressedKey = 0xFF; break;
+	default :  break;
 	}
 
     /******colume2 ******/
@@ -60,7 +60,7 @@ u8   KEYPAD_u8GetPressedKey(void)
     case 0b00001011 : pressedKey = KEYPAD_ELEMENT22_ ; break;
     case 0b00001101 : pressedKey = KEYPAD_ELEMENT21_ ; break;
     case 0b00001110 : pressedKey = KEYPAD_ELEMENT20_ ; break;
-    default : pressedKey = 0xFF; break;
+    default :  break;
     }
     /******colume1 ******/
 	KEYPAD_voidSetColsPortValue(0b00001101);
@@ -72,7 +72,7 @@ u8   KEYPAD_u8GetPressedKey(void)
 	case 0b00001011 : pressedKey = KEYPAD_ELEMENT12_ ; break;
 	case 0b00001101 : pressedKey = KEYPAD_ELEMENT11_ ; break;
 	case 0b00001110 : pressedKey = KEYPAD_ELEMENT10_ ; break;
-	default : pressedKey = 0xFF; break;
+	default :  break;
 	}
 	/******colume0 ******/
 	KEYPAD_voidSetColsPortValue(0b00001110);
@@ -84,8 +84,9 @@ u8   KEYPAD_u8GetPressedKey(void)
 	case 0b00001011 : pressedKey = KEYPAD_ELEMENT02_ ; break;
 	case 0b00001101 : pressedKey = KEYPAD_ELEMENT01_ ; break;
 	case 0b00001110 : pressedKey = KEYPAD_ELEMENT00_ ; break;
-	default : pressedKey = 0xFF; break;
+	default :  break;
 	}
+
 	return pressedKey ;
 }
 static void KEYPAD_voidSetColsPortValue(u8 u8colsValues)

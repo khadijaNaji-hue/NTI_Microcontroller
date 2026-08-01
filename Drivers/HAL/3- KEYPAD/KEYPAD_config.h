@@ -22,11 +22,11 @@
 #define KEYPAD_ELEMENT30_   '!'
 
 #define KEYPAD_ELEMENT22_   '8'
-#define KEYPAD_ELEMENT23_   '2'
+#define KEYPAD_ELEMENT23_   '5'
 #define KEYPAD_ELEMENT21_   '2'
 #define KEYPAD_ELEMENT20_   '0'
 
-#define KEYPAD_ELEMENT13_   '3'
+#define KEYPAD_ELEMENT13_   '9'
 #define KEYPAD_ELEMENT12_   '6'
 #define KEYPAD_ELEMENT11_   '3'
 #define KEYPAD_ELEMENT10_   '='
