@@ -15,6 +15,6 @@
 
 */
 
-
+#define INT0_PIN   PORTDID , PIN2
 
 #endif

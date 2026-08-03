@@ -8,7 +8,7 @@
 #define EXT0_INT_H
 #ifdef  EXT0_INT_H
 
-
+//set INT0 pin to input
  void EXT0_voidInitilaization(void);
  
  void EXT0_voidInterruptEnable(void);

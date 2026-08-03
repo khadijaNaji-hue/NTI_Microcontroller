@@ -23,9 +23,12 @@ pf CALLED_BACK_FUNCTION_PTR;
 	 	 1- clear flag
 	 	 2- set sence mode
 	 	 3- clear enable mode
+	 	 4- PORTD pin2 set to input #define INT0_PIN   PORTDID , PIN2
 	 	 */
 	 EXT0_voidSetSignalCritera(DEFAULE_SENCE_MODE);
 	 EXT0_voidInterruptDisable(); // CLEAR FLAG + CLEAR ENABLE
+	 //DIO_VoidSetPinDirection (INT0_PIN ,INPUT);
+
  }
 
 void EXT0_voidInterruptEnable(void)
