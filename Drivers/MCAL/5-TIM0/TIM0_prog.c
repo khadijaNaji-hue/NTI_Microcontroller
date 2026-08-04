@@ -14,7 +14,8 @@
 #include "TIM0_private.h"
 
 /********************************************************************/
-static pf FunctionAddress;
+static pf FunctionAddress1;
+static pf FunctionAddress2;
 
 void TIM0_voidInitialization(void)
 {
@@ -129,13 +130,13 @@ u8 TIM0_u8ReadCTCCTCReg(void)
 
 void TIM0_voidOVSetCallBack(pf OVFunctionAddress)
 {
-	FunctionAddress = OVFunctionAddress;
+	FunctionAddress1 = OVFunctionAddress;
 }
 //to Set theCall Back Function ofOverflow
 void __vector_11(void)  __attribute__((signal, used));
 void __vector_11(void)
 {
-	FunctionAddress();
+	FunctionAddress1();
 }
 
 /********************************************************************************/
@@ -143,13 +144,13 @@ void __vector_11(void)
 
 void TIM0_voidCTCSetCallBack(pf CTCFunctionAddress)
 {
-	FunctionAddress = CTCFunctionAddress;
+	FunctionAddress2 = CTCFunctionAddress;
 }
 //to Set theCall Back Function ofOverflow
 //for On Compare Match
 void __vector_10(void)  __attribute__((signal, used));
 void __vector_10(void)
 {
-	FunctionAddress();
+	FunctionAddress2();
 }
 

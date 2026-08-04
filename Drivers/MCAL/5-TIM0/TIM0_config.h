@@ -8,18 +8,23 @@
 #define TIM0_CONFIG_H
 #ifdef  TIM0_CONFIG_H
 
-#define TIM0_MODE         TIM0_CTC // TIM0_NORMAL , TIM0_PWM ,TIM0_CTC, TIM0_FAST_PWM
-#define TIM0_PRESCALLER   TIM0_NO_CLK
-#define TIM0_NO_CLK                        0
-#define TIM0_CLK_by_1                      1
-#define TIM0_CLK_by_8                      2
-#define TIM0_CLK_by_64                     3
-#define TIM0_CLK_by_256                    4
-#define TIM0_CLK_by_1024                   5
-#define TIM0_EXT_CLK_ON_T0_FALLINGEDGE     6
-#define TIM0_EXT_CLK_ON_T0_RISINGEDGE      7
-
+#define TIM0_MODE          TIM0_OVERFLOW // TIM0_OVERFLOW , TIM0_PWM ,TIM0_CTC, TIM0_FAST_PWM
+#define TIM0_PRESCALLER    TIM0_CLK_by_256
+/******TIM0_PRESCALLER options****/
+/*
+ TIM0_NO_CLK
+ TIM0_CLK_by_1
+ TIM0_CLK_by_8
+ TIM0_CLK_by_64
+ TIM0_CLK_by_256
+ TIM0_CLK_by_1024
+ TIM0_EXT_CLK_ON_T0_FALLINGEDGE
+ TIM0_EXT_CLK_ON_T0_RISINGEDGE
+ */
 
 #endif
 
-
+/***ASK ABOUT THAT PART ***/
+#ifndef F_CPU
+#define F_CPU 8000000UL
+#endif
