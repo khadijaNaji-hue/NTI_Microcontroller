@@ -17,6 +17,7 @@
  
  void EXT0_voidSetSignalCritera(u8 u8SensMode);
  
+ void EXT0_voidSetCallBack (pf FunctionAddress);
 #define LOW_LEVEL_MODE            0
 #define ANY_LOGICAL_CHANGE_MODE   1
 #define FALLING_EDGE_MODE         2
